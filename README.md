@@ -2,4 +2,4 @@
 
 A wrapper for the [Gitlab API](https://gitlab.org) written in Java.
 
-fork it to upgraded Jackson to version 2 
+fork for Jackson to version 2 
