@@ -1,8 +1,9 @@
 package org.gitlab.api.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
-import org.codehaus.jackson.annotate.JsonProperty;
 
 public class GitlabProjectHook {
 

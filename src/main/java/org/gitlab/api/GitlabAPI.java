@@ -1,14 +1,9 @@
 package org.gitlab.api;
 
-import org.codehaus.jackson.map.DeserializationConfig;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.gitlab.api.http.GitlabHTTPRequestor;
-import org.gitlab.api.models.GitlabBranch;
-import org.gitlab.api.models.GitlabCommit;
-import org.gitlab.api.models.GitlabMergeRequest;
-import org.gitlab.api.models.GitlabNote;
-import org.gitlab.api.models.GitlabProject;
-import org.gitlab.api.models.GitlabProjectHook;
+import org.gitlab.api.models.*;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,7 +23,7 @@ public class GitlabAPI {
     private final String _apiToken;
     private boolean _ignoreCertificateErrors = false;
     private static final String API_NAMESPACE = "/api/v3";
-    public static final ObjectMapper MAPPER = new ObjectMapper().configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    public static final ObjectMapper MAPPER = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     private GitlabAPI(String hostUrl, String apiToken) {
         _hostUrl = hostUrl.endsWith("/") ? hostUrl.replaceAll("/$", "") : hostUrl;
